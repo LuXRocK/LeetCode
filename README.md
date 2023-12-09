@@ -1,2 +1,2 @@
-Solving LeetCode problems
+Solving LeetCode problems.
 You can check my profile: https://leetcode.com/LuXRocK/
