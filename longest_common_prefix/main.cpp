@@ -4,17 +4,13 @@
 #include <algorithm>
 
 
-bool cmp(const std::string lhs, const std::string rhs) {
-   return lhs.length() < rhs.length();
-}
+
 
 std::string longestCommonPrefix(std::vector<std::string>& strs){
-    std::sort(strs.begin(), strs.end(), cmp);
+    
    
-    // for(auto& element : strs){
-    //     std::cout << element << std::endl;
-    // }
-
+ 
+    int n = strs.size();
     std::string pref = "";
     std::string tmp = "";
 
@@ -22,30 +18,27 @@ std::string longestCommonPrefix(std::vector<std::string>& strs){
         pref = strs[0];
     }
 
-  
-
-    for(int i = 1; i < strs.size(); i++){
-        
-        if(strs[i].substr(0, strs[0].size()) == strs[0]){
-            pref = strs[0];
-        }else{
-            for(auto letter : strs[0]){
-                tmp += letter;
-                if(strs[i].substr(0, tmp.size()) == tmp){
-                    pref = tmp;
-                }else{
-                    break;
-                }
-            }
-        }
+    if(strs.size() == 0){
+        pref = "";
     }
-    // std::cout << pref << std::endl;
+
+    std::sort(strs.begin(), strs.end());
+
+    int en = std::min(strs[0].size(), strs[n - 1].size());
+
+    std::string first = strs[0], last = strs[n-1];
+    int i = 0;
+    while(i < en && first[i] == last[i]){
+        i++;
+        pref = first.substr(0, i);
+    }
+    std::cout << pref << std::endl;
     return pref;
 }
 
 int main(){
 
-    std::vector<std::string> strs = {"flower","flow","flight"};
+    std::vector<std::string> strs = {"abab","aba","abc"};
 
     longestCommonPrefix(strs);
 
