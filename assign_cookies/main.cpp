@@ -8,21 +8,11 @@ int findContentChildren(std::vector<int>& g, std::vector<int>& s){
     sort(s.begin(), s.end());
 
     for(int i = 0; i < g.size()-1; i++){
-        int temp = result;
         for(int j = 0; j < s.size(); j++){
-            if(s[j] == g[i]){
+            if(s[j] >= g[i]){
                 result ++;
                 s.erase(s.begin() + j);
                 break;
-            }
-        }
-        if(result == temp){
-            for(int j = 0; j < s.size(); j++){
-                if(s[j] > g[i]){
-                    result ++;
-                    s.erase(s.begin() + j);
-                    break;
-                }
             }
         }
     }
@@ -33,9 +23,6 @@ int findContentChildren(std::vector<int>& g, std::vector<int>& s){
 int main(){
     std::vector<int> g{1,2,3};
     std::vector<int> s{1,1};
-
-    sort(s.begin(), s.end());
-
    
     std::cout << findContentChildren(g, s) << std::endl;
     return 0;
