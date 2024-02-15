@@ -7,24 +7,23 @@ int islandPerimeter(std::vector<std::vector<int>>& grid){
 
     for(int i = 0; i < grid.size(); i++){
         for(int j = 0; j < grid[i].size(); j++){
-            std::cout << grid[i][j] << " ";
-        }
-        std::cout << std::endl;
-    }
-
-    for(int i = 0; i < grid.size(); i++){
-        for(int j = 0; j < grid[i].size(); j++){
-            if(i > 0 && i < grid.size()-1){
-                
+            if(grid[i][j] == 1){
+                perimeter += 4;
+                if(i > 0 && grid[i-1][j] == 1){
+                    perimeter -= 2;
+                }
+                if(j > 0  && grid[i][j-1] == 1){
+                    perimeter -= 2;
+                }
             }
         }
     }
-    std::cout << perimeter << std::endl;
+    return perimeter;
 }
 
 int main(){
     
-    std::vector<std::vector<int>> grid {{0,1,0,0},{1,1,1,0},{0,1,0,0},{1,1,0,0}};
-    islandPerimeter(grid);
+    std::vector<std::vector<int>> grid {{0},{1}};
+    std::cout << islandPerimeter(grid) << std::endl;
     return 0;
 }
