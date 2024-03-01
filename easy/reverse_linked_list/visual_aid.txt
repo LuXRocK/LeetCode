@@ -1,0 +1,39 @@
+(prev)NULL
+(next)NULL
+(cur)HEAD
+
+1 -> 4 -> 5 -> 10
+
+1: (cur)1 -> 4 -> 5 -> 10
+
+2: (cur)1 -> (next)4 -> 5 -> 10
+
+3: (cur)1 -> (prev)NULL (next)4 -> 5 -> 10
+
+4: (cur)(prev)1 -> NULL (next)4 -> 5 -> 10
+
+5: (prev)1 -> NULL (next)(cur)4 -> 5 -> 10
+
+6: (prev)1 -> NULL (cur)4 -> (next)5 -> 10
+
+7: (cur)4 -> (prev)1 -> NULL (next)5 -> 10
+
+8: (cur)(prev)4 -> 1 -> NULL (next)5 -> 10
+
+9: (prev)4 -> 1 -> NULL (next)(cur)5 -> 10
+
+10: (prev)4 -> 1 -> NULL (cur)5 -> (next)10
+
+11: (cur)5 -> (prev)4 -> 1 -> NULL (next)10
+
+12: (cur)(prev)5 -> 4 -> 1 -> NULL (next)10
+
+13: (prev)5 -> 4 -> 1 -> NULL (next)(cur)10
+
+14: (prev)5 -> 4 -> 1 -> NULL (cur)10 -> (next)NULL
+
+15: (cur)10 -> (prev)5 -> 4 -> 1 -> NULL (next)NULL
+
+16: (cur)(prev)10 -> 5 -> 4 -> 1 -> NULL (next)NULL
+
+17: (prev)10 -> 5 -> 4 -> 1 -> NULL (next)(cur)NULL
