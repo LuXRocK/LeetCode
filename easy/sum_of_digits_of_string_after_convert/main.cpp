@@ -4,28 +4,30 @@
 
 int getLucky(std::string s, int k){
     std::map<char, int> alphabet;
-    int result = 0;
     for(char letter = 'a'; letter <= 'z'; letter++){
         alphabet[letter] = letter - 'a' + 1;
     }
-    // for(const auto i : alphabet){
-    //     std::cout << i.first << ": " << i.second << std::endl;
-    // }
+
     std::string convert = "";
     for(auto i : s){
         convert += std::to_string(alphabet[i]);
     }
-    // std::cout << convert << std::endl;
-    int converted = std::stoi(convert);
     for(int i = 0; i < k; i++){
-        int number = converted;
-        int new_number = 0;
-        while(converted)
+        std::string number = convert;
+        std::string new_number = "";
+        int new_int = 0;
+        for(auto i : number){
+            new_int += i - '0';
+        }
+        new_number = std::to_string(new_int);
+        convert = new_number;
     }
-    return result;
+    return std::stoi(convert);
 }
 
 int main(){
-    std::cout << getLucky("iiii", 4) << std::endl;
+
+    std::cout << getLucky("leetcode", 2) << std::endl;
+    
     return 0;
 }
