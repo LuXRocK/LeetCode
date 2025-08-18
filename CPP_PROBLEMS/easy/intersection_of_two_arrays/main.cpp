@@ -15,7 +15,6 @@ std::vector<int> intersection(std::vector<int>& nums1, std::vector<int>& nums2){
             if(std::binary_search(nums1.begin(), nums1.end(), i) && !(std::binary_search(result.begin(), result.end(), i))) result.push_back(i);
         }
     }
-    result.resize(std::distance(result.begin(), std::unique(result.begin(), result.end())));
     return result;
 }
 
